@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Prediction | Dixit Jami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./project-detail.css">
+</head>
+<body
+    class="viz-purchase"
+    data-reveal-selector=".detail-hero, .hero-visual, .panel, .hero-actions a, .hero-tags .chip"
+    data-tilt-selector=".panel"
+    data-hero-selector=".detail-hero"
+    data-hero-content-selector=".hero-visual"
+    data-spark-count="16"
+>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="spark-layer" aria-hidden="true"></div>
+    <div class="viz-bg" aria-hidden="true">
+        <div class="viz-card funnel-stack">
+            <div class="funnel-shape">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="viz-card scatter-card">
+            <div class="mini-grid"></div>
+            <svg viewBox="0 0 320 220" role="img">
+                <circle cx="52" cy="170" r="8"/>
+                <circle cx="88" cy="152" r="7"/>
+                <circle cx="118" cy="132" r="8"/>
+                <circle cx="150" cy="118" r="7"/>
+                <circle cx="178" cy="102" r="8"/>
+                <circle cx="214" cy="88" r="8"/>
+                <circle cx="246" cy="70" r="7"/>
+                <circle cx="276" cy="56" r="9"/>
+            </svg>
+        </div>
+        <div class="viz-card conversion-ring">
+            <div class="mini-donut"></div>
+        </div>
+    </div>
+    <main class="detail-shell">
+        <section class="detail-hero">
+            <div>
+                <p class="eyebrow">Case Study</p>
+                <h1>Product Purchase Prediction</h1>
+                <p class="hero-subtext">A customer analytics project designed to predict purchase likelihood and help guide more focused targeting and campaign strategy.</p>
+                <div class="hero-tags">
+                    <span class="chip">Prediction</span>
+                    <span class="chip">Customer Analytics</span>
+                    <span class="chip">Segmentation</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="./portfolio.html?skipIntro=1#projects">Back to Portfolio</a>
+                    <a href="./cv.html">View CV</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-bars">
+                    <span style="height: 50%"></span>
+                    <span style="height: 64%"></span>
+                    <span style="height: 74%"></span>
+                    <span style="height: 86%"></span>
+                </div>
+                <div class="visual-tiles">
+                    <span>Intent</span>
+                    <span>Targeting</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-grid">
+            <div>
+                <article class="panel">
+                    <h2>Project Goal</h2>
+                    <p>The goal of this project was to build a model that estimates whether a customer is likely to purchase a product. The work focused on turning customer-related inputs into actionable predictions for marketing and decision support.</p>
+                </article>
+                <article class="panel">
+                    <h2>Process</h2>
+                    <ul class="timeline">
+                        <li><strong>Data Review</strong>Explored customer-related variables and checked how they connect to purchase behavior.</li>
+                        <li><strong>Preparation</strong>Handled encoding, cleaning, and structuring of features for modeling.</li>
+                        <li><strong>Model Building</strong>Tested classification approaches to estimate purchase probability.</li>
+                        <li><strong>Interpretation</strong>Reviewed influential variables to understand which factors were driving intent.</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Outcome</h2>
+                    <ul class="bullet-list">
+                        <li>Built a predictive workflow for customer purchase estimation.</li>
+                        <li>Generated insights that can support audience targeting and campaign planning.</li>
+                        <li>Combined technical modeling with business-oriented interpretation of results.</li>
+                    </ul>
+                </article>
+            </div>
+            <aside>
+                <article class="panel">
+                    <h2>Stack</h2>
+                    <ul class="stack-list">
+                        <li><strong>Language</strong>Python, SQL</li>
+                        <li><strong>Libraries</strong>Pandas, Scikit-learn, Matplotlib</li>
+                        <li><strong>Approach</strong>Classification and feature analysis</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Highlights</h2>
+                    <ul class="stats-list">
+                        <li><strong>Focus</strong>Customer behavior prediction</li>
+                        <li><strong>Strength</strong>Marketing-oriented analytics</li>
+                        <li><strong>Value</strong>Useful for targeting and conversion planning</li>
+                    </ul>
+                </article>
+            </aside>
+        </section>
+    </main>
+    <script src="./ambient-motion.js"></script>
+</body>
+</html>

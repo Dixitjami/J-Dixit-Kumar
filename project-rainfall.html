@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Prediction | Dixit Jami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./project-detail.css">
+</head>
+<body
+    class="viz-rainfall"
+    data-reveal-selector=".detail-hero, .hero-visual, .panel, .hero-actions a, .hero-tags .chip"
+    data-tilt-selector=".panel"
+    data-hero-selector=".detail-hero"
+    data-hero-content-selector=".hero-visual"
+    data-spark-count="16"
+>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="spark-layer" aria-hidden="true"></div>
+    <div class="viz-bg" aria-hidden="true">
+        <div class="viz-card rainfall-surface">
+            <svg viewBox="0 0 520 300" role="img">
+                <path d="M20 192 C88 146, 154 146, 212 176 S328 226, 420 174 S484 126, 500 140"/>
+                <path d="M16 162 C92 108, 154 114, 228 148 S348 200, 424 152 S490 96, 504 104"/>
+                <path d="M12 126 C92 76, 168 88, 244 118 S348 160, 434 118 S494 70, 506 74"/>
+                <path d="M10 88 C98 42, 176 58, 252 84 S362 118, 442 82 S496 42, 508 46"/>
+            </svg>
+        </div>
+        <div class="viz-card rainfall-columns">
+            <div class="mini-bars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="viz-card rainfall-kpi">
+            <div>
+                <strong>87%</strong>
+                <span>Forecast Confidence</span>
+            </div>
+        </div>
+    </div>
+    <main class="detail-shell">
+        <section class="detail-hero">
+            <div>
+                <p class="eyebrow">Case Study</p>
+                <h1>Rainfall Prediction with Machine Learning</h1>
+                <p class="hero-subtext">A forecasting-focused machine learning project built to estimate next-day rainfall and identify the weather variables that contribute most to prediction confidence.</p>
+                <div class="hero-tags">
+                    <span class="chip">Python</span>
+                    <span class="chip">Classification</span>
+                    <span class="chip">Forecasting</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="./portfolio.html?skipIntro=1#projects">Back to Portfolio</a>
+                    <a href="./cv.html">View CV</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-bars">
+                    <span style="height: 54%"></span>
+                    <span style="height: 70%"></span>
+                    <span style="height: 62%"></span>
+                    <span style="height: 88%"></span>
+                </div>
+                <div class="visual-tiles">
+                    <span>Accuracy Focus</span>
+                    <span>Pattern Detection</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-grid">
+            <div>
+                <article class="panel">
+                    <h2>Project Goal</h2>
+                    <p>The objective was to use historical weather information to predict whether rainfall would occur the following day. The project focused on building a reliable classification pipeline while also understanding which environmental variables had the strongest predictive influence.</p>
+                </article>
+                <article class="panel">
+                    <h2>Process</h2>
+                    <ul class="timeline">
+                        <li><strong>Data Preparation</strong>Cleaned the dataset, handled missing values, and organized weather features for training.</li>
+                        <li><strong>Feature Work</strong>Selected useful meteorological variables and prepared them for classification models.</li>
+                        <li><strong>Modeling</strong>Tested machine learning approaches such as Logistic Regression, Decision Tree, and Random Forest.</li>
+                        <li><strong>Evaluation</strong>Compared performance using accuracy and classification quality to choose the most effective approach.</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Outcome</h2>
+                    <ul class="bullet-list">
+                        <li>Built a practical forecasting workflow that moved from raw weather data to interpretable predictions.</li>
+                        <li>Identified important weather indicators that contributed strongly to rainfall classification.</li>
+                        <li>Created a project that combines predictive modeling with business-style communication of results.</li>
+                    </ul>
+                </article>
+            </div>
+            <aside>
+                <article class="panel">
+                    <h2>Stack</h2>
+                    <ul class="stack-list">
+                        <li><strong>Language</strong>Python</li>
+                        <li><strong>Libraries</strong>Pandas, NumPy, Scikit-learn, Matplotlib</li>
+                        <li><strong>Approach</strong>Binary classification</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Highlights</h2>
+                    <ul class="stats-list">
+                        <li><strong>Focus</strong>Weather pattern prediction</li>
+                        <li><strong>Strength</strong>Model comparison and feature interpretation</li>
+                        <li><strong>Value</strong>Useful for planning and forecasting scenarios</li>
+                    </ul>
+                </article>
+            </aside>
+        </section>
+    </main>
+    <script src="./ambient-motion.js"></script>
+</body>
+</html>

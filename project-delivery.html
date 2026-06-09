@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Analysis | Dixit Jami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./project-detail.css">
+</head>
+<body
+    class="viz-delivery"
+    data-reveal-selector=".detail-hero, .hero-visual, .panel, .hero-actions a, .hero-tags .chip"
+    data-tilt-selector=".panel"
+    data-hero-selector=".detail-hero"
+    data-hero-content-selector=".hero-visual"
+    data-spark-count="16"
+>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="spark-layer" aria-hidden="true"></div>
+    <div class="viz-bg" aria-hidden="true">
+        <div class="viz-card route-board">
+            <div class="mini-grid"></div>
+            <svg viewBox="0 0 360 320" role="img">
+                <path d="M44 60 C92 92, 84 138, 132 164 S228 186, 250 138 S290 62, 320 102"/>
+                <path d="M44 60 C92 92, 84 138, 132 164 S228 186, 250 138 S290 62, 320 102"/>
+                <circle cx="44" cy="60" r="10"/>
+                <circle cx="132" cy="164" r="10"/>
+                <circle cx="250" cy="138" r="10"/>
+                <circle cx="320" cy="102" r="10"/>
+            </svg>
+        </div>
+        <div class="viz-card delay-matrix">
+            <div class="mini-heatmap">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="viz-card traffic-strip">
+            <div>
+                <strong>22%</strong>
+                <span>Delay Driver Signal</span>
+            </div>
+        </div>
+    </div>
+    <main class="detail-shell">
+        <section class="detail-hero">
+            <div>
+                <p class="eyebrow">Case Study</p>
+                <h1>Food Delivery Performance Analysis</h1>
+                <p class="hero-subtext">An operations analytics project focused on understanding why delivery times increase and which environmental factors create the biggest efficiency bottlenecks.</p>
+                <div class="hero-tags">
+                    <span class="chip">EDA</span>
+                    <span class="chip">Operations</span>
+                    <span class="chip">Optimization</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="./portfolio.html?skipIntro=1#projects">Back to Portfolio</a>
+                    <a href="./cv.html">View CV</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-bars">
+                    <span style="height: 46%"></span>
+                    <span style="height: 84%"></span>
+                    <span style="height: 58%"></span>
+                    <span style="height: 76%"></span>
+                </div>
+                <div class="visual-tiles">
+                    <span>Traffic</span>
+                    <span>Weather</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-grid">
+            <div>
+                <article class="panel">
+                    <h2>Project Goal</h2>
+                    <p>This project examined delivery performance to understand the operational factors behind delays. The main goal was to find patterns across weather, traffic, and regional conditions that could help improve delivery efficiency.</p>
+                </article>
+                <article class="panel">
+                    <h2>Process</h2>
+                    <ul class="timeline">
+                        <li><strong>Data Exploration</strong>Reviewed delivery-time records and operational variables to understand the structure of delays.</li>
+                        <li><strong>Cleaning and Transformation</strong>Prepared the dataset for analysis by organizing categories and standardizing relevant fields.</li>
+                        <li><strong>Pattern Analysis</strong>Compared traffic conditions, weather situations, and local delivery context to identify bottlenecks.</li>
+                        <li><strong>Insight Presentation</strong>Converted patterns into practical findings that could support better operational decisions.</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Outcome</h2>
+                    <ul class="bullet-list">
+                        <li>Highlighted the strongest drivers behind delivery delays.</li>
+                        <li>Created a foundation for better planning under high-traffic or weather-sensitive conditions.</li>
+                        <li>Improved understanding of how multiple operational factors combine to affect delivery performance.</li>
+                    </ul>
+                </article>
+            </div>
+            <aside>
+                <article class="panel">
+                    <h2>Stack</h2>
+                    <ul class="stack-list">
+                        <li><strong>Language</strong>Python, SQL</li>
+                        <li><strong>Libraries</strong>Pandas, Matplotlib, Seaborn</li>
+                        <li><strong>Approach</strong>Exploratory and performance analysis</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Highlights</h2>
+                    <ul class="stats-list">
+                        <li><strong>Focus</strong>Operational efficiency</li>
+                        <li><strong>Strength</strong>Real-world factor analysis</li>
+                        <li><strong>Value</strong>Supports data-backed process improvement</li>
+                    </ul>
+                </article>
+            </aside>
+        </section>
+    </main>
+    <script src="./ambient-motion.js"></script>
+</body>
+</html>

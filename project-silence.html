@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intent Behind Silence Predictor | Dixit Jami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./project-detail.css">
+</head>
+<body
+    class="viz-silence"
+    data-reveal-selector=".detail-hero, .hero-visual, .panel, .hero-actions a, .hero-tags .chip"
+    data-tilt-selector=".panel"
+    data-hero-selector=".detail-hero"
+    data-hero-content-selector=".hero-visual"
+    data-spark-count="18"
+>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="spark-layer" aria-hidden="true"></div>
+    <div class="viz-bg" aria-hidden="true">
+        <div class="viz-card silence-chat-card">
+            <div class="mini-chat">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="viz-card silence-prob-card">
+            <div class="mini-bars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="viz-card silence-kpi">
+            <div>
+                <strong>4</strong>
+                <span>Intent Classes</span>
+            </div>
+        </div>
+    </div>
+    <main class="detail-shell">
+        <section class="detail-hero">
+            <div>
+                <p class="eyebrow">Recent NLP Project</p>
+                <h1>Intent Behind Silence Predictor</h1>
+                <p class="hero-subtext">A Streamlit NLP app that turns an unanswered message and reply delay into a probability-based estimate of the likely intent behind the silence.</p>
+                <div class="hero-tags">
+                    <span class="chip">Streamlit</span>
+                    <span class="chip">TF-IDF</span>
+                    <span class="chip">Logistic Regression</span>
+                    <span class="chip">Probability Ranking</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="./portfolio.html?skipIntro=1#projects">Back to Portfolio</a>
+                    <a href="https://github.com/Dixitjami/intent-behind-silence-predictor" target="_blank" rel="noopener noreferrer">View Repository</a>
+                </div>
+            </div>
+            <div class="hero-visual hero-visual-nlp">
+                <div class="intent-card">
+                    <span>Prediction</span>
+                    <strong>Busy / Forgot / Ignoring / Not Interested</strong>
+                </div>
+                <div class="visual-bars">
+                    <span style="height: 82%"></span>
+                    <span style="height: 64%"></span>
+                    <span style="height: 42%"></span>
+                    <span style="height: 28%"></span>
+                </div>
+                <div class="visual-tiles">
+                    <span>Message Signal</span>
+                    <span>Delay Signal</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-grid">
+            <div>
+                <article class="panel">
+                    <h2>Creative Idea</h2>
+                    <p>The project is built around a very human question: when someone delays replying, what could that silence mean? Instead of treating the answer as a single guess, the app presents a ranked probability view so the user can see uncertainty and compare possible intent classes.</p>
+                </article>
+                <article class="panel">
+                    <h2>How It Works</h2>
+                    <ul class="timeline">
+                        <li><strong>Message Cleaning</strong>Normalizes the text by trimming and compressing spacing before feature extraction.</li>
+                        <li><strong>Text Vectorization</strong>Uses a saved TF-IDF vectorizer to convert the message into machine-readable text features.</li>
+                        <li><strong>Delay Feature</strong>Adds reply delay as a normalized signal, capped for stability across short and very long delays.</li>
+                        <li><strong>Extra Signals</strong>Checks punctuation, urgency words, negative phrases, and message length as additional behavioral cues.</li>
+                        <li><strong>Prediction</strong>Loads a trained classifier with Joblib and displays the top intent, confidence, runner-up, and full probability ranking.</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>User Experience</h2>
+                    <p>The Streamlit interface is designed like a small prediction workspace. Users can select examples, write their own message, choose delay in minutes or hours, and instantly review confidence, reliability notes, probability bars, and a graph view.</p>
+                </article>
+                <article class="panel">
+                    <h2>Outcome</h2>
+                    <ul class="bullet-list">
+                        <li>Created an end-to-end NLP app with model artifacts, UI, prediction logic, and deployment-ready requirements.</li>
+                        <li>Balanced machine learning output with human-readable explanations so the result feels understandable instead of mysterious.</li>
+                        <li>Added fallback intent scoring logic, making the app more resilient when model labels do not match the expected intent classes.</li>
+                    </ul>
+                </article>
+            </div>
+            <aside>
+                <article class="panel">
+                    <h2>Stack</h2>
+                    <ul class="stack-list">
+                        <li><strong>App</strong>Streamlit</li>
+                        <li><strong>ML</strong>Scikit-learn, Logistic Regression</li>
+                        <li><strong>NLP</strong>TF-IDF vectorization</li>
+                        <li><strong>Data</strong>Pandas, NumPy</li>
+                        <li><strong>Artifacts</strong>model.pkl, tfidf.pkl, label_encoder.pkl</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Highlights</h2>
+                    <ul class="stats-list">
+                        <li><strong>Classes</strong>Busy, Forgot, Ignoring, Not Interested</li>
+                        <li><strong>Inputs</strong>Message text and reply delay</li>
+                        <li><strong>Output</strong>Top prediction with confidence and probability ranking</li>
+                        <li><strong>Deployment</strong>Ready for Streamlit Community Cloud</li>
+                    </ul>
+                </article>
+            </aside>
+        </section>
+    </main>
+    <script src="./ambient-motion.js"></script>
+</body>
+</html>

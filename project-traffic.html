@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Traffic Intelligence | Dixit Jami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./project-detail.css">
+</head>
+<body
+    class="viz-traffic"
+    data-reveal-selector=".detail-hero, .hero-visual, .panel, .hero-actions a, .hero-tags .chip"
+    data-tilt-selector=".panel"
+    data-hero-selector=".detail-hero"
+    data-hero-content-selector=".hero-visual"
+    data-spark-count="20"
+>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="spark-layer" aria-hidden="true"></div>
+    <div class="viz-bg" aria-hidden="true">
+        <div class="viz-card traffic-map-card">
+            <div class="mini-grid"></div>
+        </div>
+        <div class="viz-card traffic-bars-card">
+            <div class="mini-bars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="viz-card traffic-kpi">
+            <div>
+                <strong>263</strong>
+                <span>TLC Zones</span>
+            </div>
+        </div>
+    </div>
+    <main class="detail-shell">
+        <section class="detail-hero">
+            <div>
+                <p class="eyebrow">Recent Data Intelligence Project</p>
+                <h1>NYC Traffic Intelligence</h1>
+                <p class="hero-subtext">An unsupervised-learning system that discovers congestion patterns from NYC Yellow Taxi trips and turns them into an interactive dashboard for spatial, temporal, and model-quality analysis.</p>
+                <div class="hero-tags">
+                    <span class="chip">K-Means</span>
+                    <span class="chip">DBSCAN</span>
+                    <span class="chip">Streamlit</span>
+                    <span class="chip">Pydeck Maps</span>
+                    <span class="chip">Docker</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="./portfolio.html?skipIntro=1#projects">Back to Portfolio</a>
+                    <a href="https://github.com/Dixitjami/NYC-Traffic-Intelligence" target="_blank" rel="noopener noreferrer">View Repository</a>
+                </div>
+            </div>
+            <div class="hero-visual hero-visual-traffic">
+                <div class="intent-card">
+                    <span>Core Feature</span>
+                    <strong>Speed Deviation vs Historical Baseline</strong>
+                </div>
+                <div class="visual-bars">
+                    <span style="height: 40%"></span>
+                    <span style="height: 72%"></span>
+                    <span style="height: 55%"></span>
+                    <span style="height: 88%"></span>
+                </div>
+                <div class="visual-tiles">
+                    <span>Map Filters</span>
+                    <span>Model Diagnostics</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-grid">
+            <div>
+                <article class="panel">
+                    <h2>Creative Idea</h2>
+                    <p>The project does not simply label slow traffic. Its central idea is speed deviation: comparing a zone-hour&apos;s current average speed against its own historical baseline. This helps separate real congestion events from zones that are naturally slow because of geography, roads, or local conditions.</p>
+                </article>
+                <article class="panel">
+                    <h2>Pipeline</h2>
+                    <ul class="timeline">
+                        <li><strong>Data Loading</strong>Ingests raw NYC TLC Yellow Taxi parquet files for six months of trips.</li>
+                        <li><strong>Preprocessing</strong>Applies quality filters for timestamps, distance, duration, speed, zones, duplicates, and optional per-zone IQR outlier handling.</li>
+                        <li><strong>Feature Engineering</strong>Builds time features, speed_mph, zone-hour aggregation, cyclic hour encoding, log trip density, and the speed_deviation feature.</li>
+                        <li><strong>Clustering</strong>Uses scaling, elbow selection, K-Means clustering, optional DBSCAN hotspot detection, and cluster-quality evaluation.</li>
+                        <li><strong>Visualization</strong>Precomputes dashboard data, metrics, static diagnostic charts, and interactive Streamlit views.</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Dashboard Experience</h2>
+                    <p>The dashboard lets users filter by hour, day type, borough, and cluster focus. It shows a Pydeck map of congestion zones, KPI cards, a generated story summary, cluster legend, hourly trend, centroid radar, heatmap, top congested zones, diagnostics, and an expandable raw-data table.</p>
+                </article>
+                <article class="panel">
+                    <h2>Outcome</h2>
+                    <ul class="bullet-list">
+                        <li>Built a full offline-to-online analytics system with pipeline stages, cached artifacts, app pages, tests, Docker, and Makefile shortcuts.</li>
+                        <li>Converted millions of taxi trips into zone-hour observations that can be explored quickly in Streamlit.</li>
+                        <li>Added model diagnostics including Silhouette, Davies-Bouldin, Calinski-Harabasz, per-cluster silhouette, seed-stability analysis, and visual charts.</li>
+                    </ul>
+                </article>
+            </div>
+            <aside>
+                <article class="panel">
+                    <h2>Stack</h2>
+                    <ul class="stack-list">
+                        <li><strong>Language</strong>Python</li>
+                        <li><strong>Data</strong>Pandas, NumPy, PyArrow</li>
+                        <li><strong>ML</strong>Scikit-learn, K-Means, DBSCAN, Kneed</li>
+                        <li><strong>Dashboard</strong>Streamlit, Pydeck, Plotly</li>
+                        <li><strong>Geo</strong>GeoPandas, Shapely</li>
+                        <li><strong>DevOps</strong>Docker, Docker Compose, Pytest</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Highlights</h2>
+                    <ul class="stats-list">
+                        <li><strong>Dataset</strong>NYC Yellow Taxi trips, Jan-Jun 2023</li>
+                        <li><strong>Coverage</strong>263 NYC TLC taxi zones</li>
+                        <li><strong>Innovation</strong>Speed deviation feature</li>
+                        <li><strong>UX</strong>Map, filters, KPIs, cluster stories, diagnostics</li>
+                    </ul>
+                </article>
+            </aside>
+        </section>
+    </main>
+    <script src="./ambient-motion.js"></script>
+</body>
+</html>
