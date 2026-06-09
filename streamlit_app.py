@@ -15,37 +15,37 @@ PAGES = {
     "portfolio": {
         "label": "Portfolio",
         "file": "portfolio.html",
-        "height": 1300,
+        "height": 7600,
     },
     "cv": {
         "label": "CV",
         "file": "cv.html",
-        "height": 1150,
+        "height": 1850,
     },
     "rainfall": {
         "label": "Rainfall Case Study",
         "file": "project-rainfall.html",
-        "height": 1100,
+        "height": 1600,
     },
     "delivery": {
         "label": "Delivery Case Study",
         "file": "project-delivery.html",
-        "height": 1150,
+        "height": 1650,
     },
     "purchase": {
         "label": "Purchase Case Study",
         "file": "project-purchase.html",
-        "height": 1100,
+        "height": 1550,
     },
     "silence": {
         "label": "Silence Case Study",
         "file": "project-silence.html",
-        "height": 1150,
+        "height": 1650,
     },
     "traffic": {
         "label": "Traffic Case Study",
         "file": "project-traffic.html",
-        "height": 1150,
+        "height": 1650,
     },
 }
 
@@ -95,7 +95,13 @@ def inline_local_scripts(markup: str) -> str:
         script_path = ROOT / match.group(1)
         if not script_path.exists():
             return match.group(0)
-        return f"<script>\n{read_text(script_path)}\n</script>"
+        script_text = read_text(script_path)
+        if match.group(1) == "portfolio.js":
+            script_text = script_text.replace(
+                "var shouldSkipLoader = hasSkipIntroQuery() ||",
+                "var shouldSkipLoader = window.__STREAMLIT_PORTFOLIO__ || hasSkipIntroQuery() ||",
+            )
+        return f"<script>\n{script_text}\n</script>"
 
     return pattern.sub(replace, markup)
 
@@ -137,7 +143,16 @@ def rewrite_local_page_links(markup: str) -> str:
 
 def prepare_html(page_file: str) -> str:
     markup = read_text(ROOT / page_file)
-    markup = markup.replace("</head>", "<style>html, body { overflow-x: hidden; }</style></head>")
+    streamlit_style = """
+    <script>window.__STREAMLIT_PORTFOLIO__ = true;</script>
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+    """
+    markup = markup.replace("</head>", f"{streamlit_style}</head>")
     markup = inline_local_styles(markup)
     markup = inline_local_scripts(markup)
     markup = inline_local_assets(markup)
@@ -160,6 +175,14 @@ st.set_page_config(
 st.markdown(
     """
     <style>
+        [data-testid="stHeader"],
+        [data-testid="stToolbar"],
+        [data-testid="stSidebar"],
+        [data-testid="stSidebarCollapsedControl"],
+        footer {
+            display: none !important;
+        }
+
         .stApp {
             background: #05070d;
         }
@@ -169,13 +192,10 @@ st.markdown(
             padding: 0;
         }
 
-        [data-testid="stSidebar"] {
-            background: #070b12;
-        }
-
         iframe {
             display: block;
             border: 0;
+            width: 100%;
         }
     </style>
     """,
@@ -184,20 +204,9 @@ st.markdown(
 
 selected_page = current_page_key()
 
-with st.sidebar:
-    st.title("Dixit Jami")
-    chosen_label = st.radio(
-        "Portfolio pages",
-        [page["label"] for page in PAGES.values()],
-        index=list(PAGES).index(selected_page),
-    )
-    selected_page = next(key for key, page in PAGES.items() if page["label"] == chosen_label)
-    st.query_params["page"] = selected_page
-    st.link_button("Open GitHub Pages site", "https://dixitjami.github.io/J-Dixit-Kumar/")
-
 page_config = PAGES[selected_page]
 render_html(
     prepare_html(page_config["file"]),
     height=page_config["height"],
-    scrolling=True,
+    scrolling=False,
 )
