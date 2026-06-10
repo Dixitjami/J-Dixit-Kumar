@@ -144,11 +144,35 @@ def rewrite_local_page_links(markup: str) -> str:
 def prepare_html(page_file: str) -> str:
     markup = read_text(ROOT / page_file)
     streamlit_style = """
-    <script>window.__STREAMLIT_PORTFOLIO__ = true;</script>
+    <script>
+        window.__STREAMLIT_PORTFOLIO__ = true;
+        document.documentElement.dataset.embed = "streamlit";
+    </script>
     <style>
         html,
         body {
             overflow-x: hidden;
+        }
+
+        html[data-embed="streamlit"] body {
+            min-height: auto;
+        }
+
+        html[data-embed="streamlit"] main > .landing-shell,
+        html[data-embed="streamlit"] .landing-shell {
+            min-height: auto;
+        }
+
+        html[data-embed="streamlit"] .hero {
+            height: min(100vh, 920px);
+            min-height: min(720px, 100vh);
+        }
+
+        @media (max-width: 760px) {
+            html[data-embed="streamlit"] .hero {
+                height: min(100vh, 860px);
+                min-height: min(720px, 100vh);
+            }
         }
     </style>
     """
