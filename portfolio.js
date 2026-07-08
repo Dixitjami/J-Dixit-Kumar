@@ -39,7 +39,7 @@
     }
 
     function cameFromInternalDetailPage() {
-        return /(?:project-(?:delivery|purchase|rainfall)|cv)\.html(?:[?#]|$)/i.test(document.referrer || "");
+        return /(?:project-(?:delivery|purchase|rainfall|silence|traffic|qurikspace)|cv)\.html(?:[?#]|$)/i.test(document.referrer || "");
     }
 
     function cleanSkipIntroQuery() {

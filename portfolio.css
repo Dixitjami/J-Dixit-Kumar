@@ -7086,12 +7086,14 @@ body[data-active-section="home"] .hero-nav {
 .project-wide,
 .project-compact,
 .project-nlp,
-.project-traffic {
+.project-traffic,
+.project-qurikspace {
     min-height: 330px;
 }
 
 .project-nlp,
-.project-traffic {
+.project-traffic,
+.project-qurikspace {
     grid-column: span 6;
 }
 
@@ -7127,7 +7129,8 @@ body[data-active-section="home"] .hero-nav {
 .project-wide .project-visual,
 .project-compact .project-visual,
 .project-nlp .project-visual,
-.project-traffic .project-visual {
+.project-traffic .project-visual,
+.project-qurikspace .project-visual {
     min-height: 170px;
 }
 
@@ -7497,12 +7500,97 @@ body[data-active-section="home"] .hero-nav {
     text-align: center;
 }
 
+.project-visual-qurikspace {
+    background:
+        radial-gradient(circle at 78% 18%, rgba(95, 236, 177, 0.24), transparent 28%),
+        radial-gradient(circle at 18% 78%, rgba(96, 165, 250, 0.22), transparent 30%),
+        linear-gradient(135deg, #07151d, #102c34 54%, #1f213d);
+}
+
+.qurikspace-browser {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 4.2rem;
+    bottom: 4.1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+    padding: 2.3rem 0.8rem 0.8rem;
+    border: 1px solid rgba(220, 255, 243, 0.14);
+    border-radius: 15px;
+    background: rgba(5, 16, 24, 0.62);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.qurikspace-browser::before {
+    content: "";
+    position: absolute;
+    inset: 0.75rem auto auto 0.8rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: #ff6b6b;
+    box-shadow: 0.9rem 0 0 #ffd166, 1.8rem 0 0 #63e6be;
+}
+
+.qurikspace-browser > span {
+    min-height: 3.1rem;
+    border-radius: 12px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 40%),
+        rgba(255, 255, 255, 0.08);
+}
+
+.qurikspace-browser strong {
+    position: absolute;
+    left: 0.85rem;
+    right: 0.85rem;
+    top: 2.05rem;
+    color: #ffffff;
+    font-size: 0.84rem;
+}
+
+.qurikspace-browser i {
+    display: block;
+    padding: 0.42rem 0.34rem;
+    border-radius: 999px;
+    background: rgba(99, 230, 190, 0.14);
+    color: rgba(241, 255, 250, 0.9);
+    font-size: 0.68rem;
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+}
+
+.qurikspace-flow {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+}
+
+.qurikspace-flow span {
+    padding: 0.5rem 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(7, 14, 24, 0.58);
+    color: rgba(244, 249, 255, 0.86);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-align: center;
+}
+
 @media (max-width: 760px) {
     .project-poster,
     .project-wide,
     .project-compact,
     .project-nlp,
-    .project-traffic {
+    .project-traffic,
+    .project-qurikspace {
         grid-column: auto;
         min-height: auto;
     }
@@ -7517,7 +7605,8 @@ body[data-active-section="home"] .hero-nav {
     .project-wide .project-visual,
     .project-compact .project-visual,
     .project-nlp .project-visual,
-    .project-traffic .project-visual {
+    .project-traffic .project-visual,
+    .project-qurikspace .project-visual {
         min-height: 180px;
     }
 }

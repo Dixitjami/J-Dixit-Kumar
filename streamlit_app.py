@@ -47,6 +47,11 @@ PAGES = {
         "file": "project-traffic.html",
         "height": 1650,
     },
+    "qurikspace": {
+        "label": "QurikSpace Case Study",
+        "file": "project-qurikspace.html",
+        "height": 1650,
+    },
 }
 
 LOCAL_PAGE_LINKS = {
@@ -57,6 +62,7 @@ LOCAL_PAGE_LINKS = {
     "project-purchase.html": "purchase",
     "project-silence.html": "silence",
     "project-traffic.html": "traffic",
+    "project-qurikspace.html": "qurikspace",
 }
 
 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QurikSpace Student Freelancing Platform | Dixit Jami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./project-detail.css">
+</head>
+<body
+    class="viz-qurikspace"
+    data-reveal-selector=".detail-hero, .hero-visual, .panel, .hero-actions a, .hero-tags .chip"
+    data-tilt-selector=".panel"
+    data-hero-selector=".detail-hero"
+    data-hero-content-selector=".hero-visual"
+    data-spark-count="20"
+>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="spark-layer" aria-hidden="true"></div>
+    <div class="viz-bg" aria-hidden="true">
+        <div class="viz-card traffic-map-card">
+            <div class="mini-grid"></div>
+        </div>
+        <div class="viz-card traffic-bars-card">
+            <div class="mini-bars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="viz-card traffic-kpi">
+            <div>
+                <strong>Live</strong>
+                <span>Render App</span>
+            </div>
+        </div>
+    </div>
+    <main class="detail-shell">
+        <section class="detail-hero">
+            <div>
+                <p class="eyebrow">Recently Deployed Full-Stack Project</p>
+                <h1>QurikSpace Student Freelancing Platform</h1>
+                <p class="hero-subtext">A full-stack Django marketplace built for students to publish services, manage gigs, receive orders, communicate with clients, process payments, collect reviews, and discover personalized recommendations.</p>
+                <div class="hero-tags">
+                    <span class="chip">Django</span>
+                    <span class="chip">Full Stack</span>
+                    <span class="chip">Docker</span>
+                    <span class="chip">GitHub Actions</span>
+                    <span class="chip">Render</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="./portfolio.html?skipIntro=1#projects">Back to Portfolio</a>
+                    <a href="https://qurikspace-student-freelancing-platform.onrender.com/" target="_blank" rel="noopener noreferrer">Open Live App</a>
+                    <a href="https://github.com/Dixitjami/QurikSpace-Student-Freelancing-Platform" target="_blank" rel="noopener noreferrer">View Repository</a>
+                </div>
+            </div>
+            <div class="hero-visual hero-visual-qurikspace">
+                <div class="intent-card">
+                    <span>Platform Flow</span>
+                    <strong>Student service marketplace from gig creation to review</strong>
+                </div>
+                <div class="visual-bars">
+                    <span style="height: 64%"></span>
+                    <span style="height: 82%"></span>
+                    <span style="height: 56%"></span>
+                    <span style="height: 74%"></span>
+                </div>
+                <div class="visual-tiles">
+                    <span>Gigs</span>
+                    <span>Orders</span>
+                    <span>Messages</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-grid">
+            <div>
+                <article class="panel">
+                    <h2>Project Idea</h2>
+                    <p>QurikSpace focuses on a practical campus problem: students often have skills they can offer, but they need a focused place to list services, receive work requests, coordinate with clients, and build credibility through reviews.</p>
+                </article>
+                <article class="panel">
+                    <h2>Core Workflow</h2>
+                    <ul class="timeline">
+                        <li><strong>Service Publishing</strong>Students create and manage gigs so their skills are visible as structured offerings.</li>
+                        <li><strong>Order Management</strong>Clients can place requests while students track work and delivery status.</li>
+                        <li><strong>Communication</strong>Built-in messaging supports project discussion between clients and student freelancers.</li>
+                        <li><strong>Payments</strong>The platform includes payment handling as part of the service-order flow.</li>
+                        <li><strong>Trust Layer</strong>Reviews and personalized recommendations help users find better matches over time.</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Deployment</h2>
+                    <p>The application is containerized with Docker, supported by GitHub Actions for CI/CD, and deployed publicly on Render so it can be tested as a real web application instead of only a local prototype.</p>
+                </article>
+                <article class="panel">
+                    <h2>Outcome</h2>
+                    <ul class="bullet-list">
+                        <li>Delivered a live full-stack platform with marketplace, communication, payment, review, and recommendation features.</li>
+                        <li>Designed around student freelancers, making the project more domain-specific than a generic gig listing app.</li>
+                        <li>Added deployment and automation practices through Docker, GitHub Actions, and Render hosting.</li>
+                    </ul>
+                </article>
+            </div>
+            <aside>
+                <article class="panel">
+                    <h2>Stack</h2>
+                    <ul class="stack-list">
+                        <li><strong>Backend</strong>Django</li>
+                        <li><strong>Frontend</strong>HTML templates and static assets</li>
+                        <li><strong>Platform</strong>Student freelancing marketplace</li>
+                        <li><strong>DevOps</strong>Docker, GitHub Actions</li>
+                        <li><strong>Deployment</strong>Render</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <h2>Highlights</h2>
+                    <ul class="stats-list">
+                        <li><strong>Status</strong>Recently deployed live app</li>
+                        <li><strong>Users</strong>Students, freelancers, and clients</li>
+                        <li><strong>Features</strong>Gigs, orders, messages, payments, reviews</li>
+                        <li><strong>Repository</strong>Public GitHub project</li>
+                    </ul>
+                </article>
+            </aside>
+        </section>
+    </main>
+    <script src="./ambient-motion.js"></script>
+</body>
+</html>
