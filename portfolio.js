@@ -99,7 +99,9 @@
 
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var coarsePointer = window.matchMedia("(pointer: coarse)").matches;
-    var allowInteractiveMotion = !reduceMotion && !coarsePointer;
+    var smallViewport = window.matchMedia("(max-width: 900px)").matches;
+    var lowCoreDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+    var allowInteractiveMotion = !reduceMotion && !coarsePointer && !smallViewport && !lowCoreDevice;
     var loaderGreeting = document.querySelector("[data-loader-greeting]");
     var loaderLanguage = document.querySelector("[data-loader-language]");
     var loaderDialog = document.querySelector("[data-loader-dialog]");
@@ -798,7 +800,7 @@
             card.classList.toggle("is-active", isActive);
             card.style.transform = transform;
             card.style.opacity = isActive ? "1" : absOffset === 1 ? "0.68" : "0.34";
-            card.style.filter = isActive ? "blur(0)" : absOffset === 1 ? "blur(1.4px)" : "blur(2.8px)";
+            card.style.filter = "";
             card.style.pointerEvents = "auto";
             card.style.zIndex = String(30 - absOffset * 8);
             card.setAttribute("aria-hidden", isActive ? "false" : "true");
@@ -837,7 +839,7 @@
 
     if (showcaseStage && showcaseCards.length) {
         renderShowcase();
-        if (!reduceMotion) {
+        if (!reduceMotion && allowInteractiveMotion) {
             startShowcaseAuto();
         }
 
@@ -883,7 +885,7 @@
 
         showcaseStage.addEventListener("mouseleave", function () {
             showcasePaused = false;
-            if (!reduceMotion) {
+            if (!reduceMotion && allowInteractiveMotion) {
                 startShowcaseAuto();
             }
         });
@@ -895,7 +897,7 @@
 
         showcaseStage.addEventListener("focusout", function () {
             showcasePaused = false;
-            if (!reduceMotion) {
+            if (!reduceMotion && allowInteractiveMotion) {
                 startShowcaseAuto();
             }
         });
@@ -986,113 +988,9 @@
 
     if (!allowInteractiveMotion) return;
 
-    var tiltItems = document.querySelectorAll(".card, .project, .tilt-3d");
-    tiltItems.forEach(function (item) {
-        item.addEventListener("mousemove", function (event) {
-            var rect = item.getBoundingClientRect();
-            var x = event.clientX - rect.left;
-            var y = event.clientY - rect.top;
-            var centerX = rect.width / 2;
-            var centerY = rect.height / 2;
-            var strength = Number(item.getAttribute("data-tilt-strength")) || 4;
-            var rotateX = ((y - centerY) / centerY) * -(strength * 0.8);
-            var rotateY = ((x - centerX) / centerX) * strength;
-            item.style.transform =
-                "perspective(900px) rotateX(" +
-                rotateX.toFixed(2) +
-                "deg) rotateY(" +
-                rotateY.toFixed(2) +
-                "deg) translateY(-2px)";
-        });
-
-        item.addEventListener("mouseleave", function () {
-            item.style.transform = "";
-        });
-    });
-
-    var magneticButtons = document.querySelectorAll(".top-nav .nav-list a, .hero-nav a, .btn, button");
-    magneticButtons.forEach(function (btn) {
-        btn.addEventListener("mousemove", function (event) {
-            var rect = btn.getBoundingClientRect();
-            var x = event.clientX - rect.left - rect.width / 2;
-            var y = event.clientY - rect.top - rect.height / 2;
-            btn.style.transform =
-                "translate(" + (x * 0.08).toFixed(2) + "px," + (y * 0.12).toFixed(2) + "px)";
-        });
-
-        btn.addEventListener("mouseleave", function () {
-            btn.style.transform = "";
-        });
-    });
-
-    var glow = document.createElement("div");
-    glow.className = "cursor-glow";
-    document.body.appendChild(glow);
-
-    var glowX = window.innerWidth / 2;
-    var glowY = window.innerHeight / 2;
-    var targetX = glowX;
-    var targetY = glowY;
-
-    function animateGlow() {
-        glowX += (targetX - glowX) * 0.16;
-        glowY += (targetY - glowY) * 0.16;
-        glow.style.left = glowX + "px";
-        glow.style.top = glowY + "px";
-        requestAnimationFrame(animateGlow);
-    }
-
-    window.addEventListener("mousemove", function (event) {
-        targetX = event.clientX;
-        targetY = event.clientY;
-        glow.style.opacity = "1";
-    });
-
-    window.addEventListener("mouseleave", function () {
-        glow.style.opacity = "0";
-    });
-
     var hero = document.querySelector(".hero");
     var heroContent = document.querySelector(".hero-content");
     if (hero && heroContent) {
         heroContent.style.transform = "";
     }
-
-    if (showcaseStage) {
-        showcaseStage.addEventListener("mousemove", function (event) {
-            var rect = showcaseStage.getBoundingClientRect();
-            var x = event.clientX - rect.left;
-            var y = event.clientY - rect.top;
-            var rx = (x / rect.width - 0.5) * 10;
-            var ry = (y / rect.height - 0.5) * -8;
-            showcaseStage.style.setProperty("--stage-tilt-x", ry.toFixed(2) + "deg");
-            showcaseStage.style.setProperty("--stage-tilt-y", rx.toFixed(2) + "deg");
-        });
-
-        showcaseStage.addEventListener("mouseleave", function () {
-            showcaseStage.style.setProperty("--stage-tilt-x", "0deg");
-            showcaseStage.style.setProperty("--stage-tilt-y", "0deg");
-        });
-    }
-
-    var sparkLayer = document.querySelector(".spark-layer");
-    if (sparkLayer) {
-        var sparkCount = 24;
-        for (var i = 0; i < sparkCount; i++) {
-            var spark = document.createElement("span");
-            spark.className = "spark";
-            var left = Math.random() * 100;
-            var drift = (Math.random() * 220 - 110).toFixed(0) + "px";
-            var duration = (8 + Math.random() * 8).toFixed(2) + "s";
-            var delay = (Math.random() * 8).toFixed(2) + "s";
-            spark.style.left = left.toFixed(2) + "vw";
-            spark.style.setProperty("--x-start", "0px");
-            spark.style.setProperty("--x-end", drift);
-            spark.style.setProperty("--dur", duration);
-            spark.style.setProperty("--delay", delay);
-            sparkLayer.appendChild(spark);
-        }
-    }
-
-    animateGlow();
 })();
