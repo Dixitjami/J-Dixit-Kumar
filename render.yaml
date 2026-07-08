@@ -1,8 +1,7 @@
 services:
   - type: web
     name: dixit-jami-portfolio
-    runtime: python
-    plan: free
+    runtime: static
     buildCommand: echo "Static portfolio - no build step required"
-    startCommand: python -m http.server $PORT --bind 0.0.0.0
-    autoDeploy: true
+    staticPublishPath: .
+    autoDeployTrigger: commit
