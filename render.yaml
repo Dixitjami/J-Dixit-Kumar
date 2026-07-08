@@ -3,6 +3,6 @@ services:
     name: dixit-jami-portfolio
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python -m streamlit run streamlit_app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
+    buildCommand: echo "Static portfolio - no build step required"
+    startCommand: python -m http.server $PORT --bind 0.0.0.0
     autoDeploy: true
